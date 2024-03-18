@@ -127,18 +127,17 @@ public class RobotContainer
   {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
 
-    new JoystickButton(driverXbox, 7).onTrue((new InstantCommand(drivebase::zeroGyro)));
-    new JoystickButton(driverXbox, 8).onTrue(new InstantCommand(drivebase::addFakeVisionReading));
-    new JoystickButton(driverXbox,
-                       5).whileTrue(
-        Commands.deferredProxy(() -> drivebase.driveToPose(
-                                   new Pose2d((isBlue() ? new Translation2d(2.44, 5.56) : new Translation2d(14.85,  5.59)), (isBlue() ? Rotation2d.fromDegrees(0) : Rotation2d.fromDegrees(180))), lastKnownPose)
-                              ));
-    new JoystickButton(driverXbox,
-                       6).whileTrue(
-        Commands.deferredProxy(() -> drivebase.driveToPose(
-                                   new Pose2d((isBlue() ? new Translation2d(14.85, 0.66) : new Translation2d(1.7, 0.77)), (isBlue() ? Rotation2d.fromDegrees(-55) : Rotation2d.fromDegrees(65))), lastKnownPose)
-                              ));
+    new JoystickButton(driverXbox, 5).onTrue((new InstantCommand(drivebase::zeroGyro)));
+    // new JoystickButton(driverXbox,
+    //                    5).whileTrue(
+    //     Commands.deferredProxy(() -> drivebase.driveToPose(
+    //                                new Pose2d((isBlue() ? new Translation2d(2.44, 5.56) : new Translation2d(14.85,  5.59)), (isBlue() ? Rotation2d.fromDegrees(0) : Rotation2d.fromDegrees(180))), lastKnownPose)
+    //                           ));
+    // new JoystickButton(driverXbox,
+    //                    6).whileTrue(
+    //     Commands.deferredProxy(() -> drivebase.driveToPose(
+    //                                new Pose2d((isBlue() ? new Translation2d(14.85, 0.66) : new Translation2d(1.7, 0.77)), (isBlue() ? Rotation2d.fromDegrees(-55) : Rotation2d.fromDegrees(65))), lastKnownPose)
+    //                           ));
         
 //    new JoystickButton(driverXbox, 3).whileTrue(new RepeatCommand(new InstantCommand(drivebase::lock, drivebase)));
   } 
